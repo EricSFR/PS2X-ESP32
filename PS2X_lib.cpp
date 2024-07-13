@@ -350,18 +350,22 @@ byte PS2X::readType() {
 
   return 0;
 */
-  Serial.print("Controller_type: ");
-  Serial.println(controller_type, HEX);
-  if(controller_type == 0x03)
-    return 1;
-  else if(controller_type == 0x01 && PS2data[1] == 0x42)
-	return 4;
-  else if(controller_type == 0x01 && PS2data[1] != 0x42)
-    return 2;
-  else if(controller_type == 0x0C)  
-    return 3;  //2.4G Wireless Dual Shock PS2 Game Controller
-	
-  return 0;
+  if(controller_type == 0x03){
+	  Serial.println(" DualShock Controller found ");
+	  return 1;
+  }else if(controller_type == 0x01 && PS2data[1] == 0x42){
+	  return 4;
+  }
+  else if(controller_type == 0x01 && PS2data[1] != 0x42){
+	  Serial.println(" GuitarHero Controller found ");
+	  return 2;
+  }
+  else if(controller_type == 0x0C){
+	  Serial.println(" Wireless Sony DualShock Controller found ");
+	  return 3;
+  }else{
+	return 0;	  
+  }
 }
 
 /****************************************************************************************/
