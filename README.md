@@ -1,3 +1,3 @@
 ## NOTE
 
-fork from： https://github.com/madsci1016/Arduino-PS2X
+fork from： [MyArduinoLib](https://github.com/MyArduinoLib/Arduino-PS2X-ESP32)
